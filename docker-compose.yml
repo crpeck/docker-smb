@@ -5,7 +5,10 @@ services:
     tty: true
     network_mode: bridge
     volumes:
-      - /mnt/hdd_repo/Shared/:/Shared
+      - /tank/:/Shared
+      - type: bind
+        source: ./smb.conf
+        target: /etc/smb.conf
     ports:
       - "139:139"
       - "445:445"
